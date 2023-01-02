@@ -32,11 +32,9 @@ public class Commande implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long id;
-	@ManyToMany(mappedBy="commandes")
-
+	@OneToMany(mappedBy="commande")
 	private List<Article> articles;
-	@ManyToOne
-
+	@OneToOne
 	private User user;
 
 }

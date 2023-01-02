@@ -3,7 +3,9 @@ package tn.esprit.spring.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,10 +53,11 @@ public class FileDB implements Serializable {
   private byte[] data;
   
   
+  @OneToOne
+  private User user;
   
-  @ManyToMany
-  @JsonIgnore
-  private List<User> user;
+  @OneToOne
+  private Article article;
   
 
 

@@ -8,6 +8,6 @@ import tn.esprit.spring.entity.Commande;
 
 
 @Repository
-public interface CommandeRepository extends JpaRepository<Commande, String> {
+public interface CommandeRepository extends JpaRepository<Commande, Long> {
 
 }

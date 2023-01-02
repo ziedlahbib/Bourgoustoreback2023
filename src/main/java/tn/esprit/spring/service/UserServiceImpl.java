@@ -68,7 +68,7 @@ public class UserServiceImpl implements IUserservice {
 		// TODO Auto-generated method stub
 		User u = userRepo.findById(iduser).orElse(null);
 		FileDB f = fileRepo.findById(idfile).orElse(null);
-		f.getUser().add(u);
+		f.setUser(u);
 		fileRepo.save(f);
 		return u;
 	}

@@ -49,8 +49,12 @@ public class FileStorageService {
   public Stream<FileDB> getAllFiles() {
     return fileDBRepo.findAll().stream();
   }
-  public List<FileDB> getFileByannonce(Long id) {
+  public FileDB getFileByuser(Long id) {
 	  User t =userRepo.findById(id).orElse(null);
+	    return t.getFiles();
+	  }
+  public FileDB getFileByarticle(String id) {
+	  Article t =articlerepo.findById(id).orElse(null);
 	    return t.getFiles();
 	  }
   public void affecterFileToArticle(Long idFiles, String idAticle) {
@@ -58,9 +62,16 @@ public class FileStorageService {
 		
 		FileDB f=fileDBRepo.findById(idFiles).orElse(null);
 		t.setFiles(f);
-		articlerepo.save(t);
-	
-		
+		articlerepo.save(t);	
+	}
+
+	public User affcterfileauuser(Long iduser,Long idfile) {
+		// TODO Auto-generated method stub
+		User u = userRepo.findById(iduser).orElse(null);
+		FileDB f = fileDBRepo.findById(idfile).orElse(null);
+		f.setUser(u);
+		fileDBRepo.save(f);
+		return u;
 	}
  
 }

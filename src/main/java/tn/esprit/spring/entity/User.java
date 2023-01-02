@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -69,8 +70,10 @@ public class User implements Serializable {
 	private String password;
 
 
-	@ManyToMany(mappedBy="user")
-	@JsonIgnore
-	private List<FileDB> files;
+	@OneToOne(mappedBy="user")
+	private FileDB files;
+	
+	@OneToOne(mappedBy="user")
+	private Commande cmd;
 	
 }
