@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import tn.esprit.spring.entity.Article;
 import tn.esprit.spring.entity.FileDB;
 import tn.esprit.spring.entity.User;
+import tn.esprit.spring.repository.ArticleRepository;
 import tn.esprit.spring.repository.FileDBRepository;
 import tn.esprit.spring.repository.UserRepository;
 
@@ -23,6 +25,8 @@ public class FileStorageService {
   private FileDBRepository fileDBRepo;
   @Autowired
   UserRepository userRepo;
+  @Autowired
+  ArticleRepository articlerepo;
   public FileDB store(MultipartFile file) throws IOException {
     String fileName = StringUtils.cleanPath(file.getOriginalFilename());
     FileDB FileDB = new FileDB(fileName, file.getContentType(), file.getBytes());
@@ -49,5 +53,14 @@ public class FileStorageService {
 	  User t =userRepo.findById(id).orElse(null);
 	    return t.getFiles();
 	  }
+  public void affecterFileToArticle(Long idFiles, String idAticle) {
+		Article t=articlerepo.findById(idAticle).orElse(null);
+		
+		FileDB f=fileDBRepo.findById(idFiles).orElse(null);
+		t.setFiles(f);
+		articlerepo.save(t);
+	
+		
+	}
  
 }
