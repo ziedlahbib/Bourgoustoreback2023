@@ -48,8 +48,8 @@ public class Article implements Serializable {
 
 	  @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	  private FileDB files;
-	  @ManyToOne
-	  private Commande commande;
+	  @ManyToMany
+	  private List<Commande> commande;
 	  
 
 }

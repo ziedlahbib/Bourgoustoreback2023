@@ -38,7 +38,7 @@ public class CommandeServiceImpl implements ICommandeserv{
 			for(String a : idarticles) {
 				Article as =articleRepo.findById(a).orElse(null);
 				System.out.println("as:"+as.getId());
-				as.setCommande(cmd);
+				as.getCommande().add(cmd);
 				articleRepo.save(as);
 			}
 			
@@ -49,7 +49,7 @@ public class CommandeServiceImpl implements ICommandeserv{
 			for(String a : idarticles) {
 				Article as =articleRepo.findById(a).orElse(null);
 				System.out.println("as:"+as.getId());
-				as.setCommande(c);
+				as.getCommande().add(c);
 				articleRepo.save(as);
 			}
 			return c;
