@@ -23,37 +23,17 @@ public class CommandeServiceImpl implements ICommandeserv{
 	UserRepository userRepo;
 	@Override
 	public Commande ajouteretAffecterArticle(List<String> idarticles, Commande cmd,Long iduser) {
-		User u = userRepo.findById(iduser).orElse(null);/*
+		User u = userRepo.findById(iduser).orElse(null);
 		cmdRepo.save(cmd);
 		cmd.setUser(u);
 		for(String a : idarticles) {
 			Article as =articleRepo.findById(a).orElse(null);
 			System.out.println("as:"+as.getId());
-			as.setCommande(cmd);
+			as.getCommande().add(cmd);
 			articleRepo.save(as);
 		}
-		*/
-		if(u.getCmd()==null) {
-			cmdRepo.save(cmd);
-			for(String a : idarticles) {
-				Article as =articleRepo.findById(a).orElse(null);
-				System.out.println("as:"+as.getId());
-				as.getCommande().add(cmd);
-				articleRepo.save(as);
-			}
-			
-			cmd.setUser(u);
-			return  cmdRepo.save(cmd);
-		}else {
-			Commande c=u.getCmd();
-			for(String a : idarticles) {
-				Article as =articleRepo.findById(a).orElse(null);
-				System.out.println("as:"+as.getId());
-				as.getCommande().add(c);
-				articleRepo.save(as);
-			}
-			return c;
-		}
+		return cmd;
 	}
-
 }
+
+

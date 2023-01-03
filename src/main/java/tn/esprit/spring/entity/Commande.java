@@ -34,7 +34,7 @@ public class Commande implements Serializable{
 	private Long id;
 	@ManyToMany(mappedBy="commande")
 	private List<Article> articles;
-	@OneToOne
+	@ManyToOne
 	private User user;
 
 }

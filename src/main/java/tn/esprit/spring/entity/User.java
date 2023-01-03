@@ -73,7 +73,7 @@ public class User implements Serializable {
 	@OneToOne(mappedBy="user")
 	private FileDB files;
 	
-	@OneToOne(mappedBy="user")
-	private Commande cmd;
+	@OneToMany(mappedBy="user")
+	private List<Commande> cmd;
 	
 }
