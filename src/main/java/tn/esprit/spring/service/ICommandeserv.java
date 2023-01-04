@@ -5,8 +5,9 @@ import tn.esprit.spring.entity.Commande;
 import java.util.List;
 
 import tn.esprit.spring.entity.Article;
+import tn.esprit.spring.entity.ArticleVendu;
 
 public interface ICommandeserv {
-	public Commande ajouteretAffecterArticle(List<String> articles,Commande cmd,Long iduser);
+	public Commande ajouteretAffecterArticle(List<ArticleVendu> articles,Commande cmd,Long iduser);
 
 }
