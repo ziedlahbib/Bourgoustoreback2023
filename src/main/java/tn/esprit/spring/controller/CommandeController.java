@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import tn.esprit.spring.entity.ArticleVendu;
 import tn.esprit.spring.entity.Commande;
 import tn.esprit.spring.service.CommandeServiceImpl;
 
@@ -24,8 +25,8 @@ public class CommandeController {
 	@Autowired
 	CommandeServiceImpl cmdServ;
 	@PostMapping("/add-Commande/{idArticle}/{iduser}")
-	public void ajoutercomandeetuserEtAffecterArticleaucommande(@RequestBody Commande cmd, @PathVariable("idArticle")List<String> idArticle,@PathVariable("iduser")Long iduser){
-		cmdServ.ajouteretAffecterArticle(idArticle, cmd,iduser);
+	public void ajoutercomandeetuserEtAffecterArticleaucommande(@RequestBody Commande cmd, @PathVariable("idArticle")List<ArticleVendu> idArticle,@PathVariable("iduser")Long iduser){
+		cmdServ.ajoutercommande(idArticle, cmd,iduser);
 	}
 
 }
