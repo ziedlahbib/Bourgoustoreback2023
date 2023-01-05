@@ -37,7 +37,7 @@ import tn.esprit.spring.service.FileStorageService;
 @CrossOrigin(origins = "http://localhost:4200/",exposedHeaders="Access-Control-Allow-Origin" )
 @Slf4j
 @RestController
-@RequestMapping("/FileTrip")
+@RequestMapping("/File")
 public class FileController {
   @Autowired
   private FileStorageService storageService;
@@ -86,7 +86,7 @@ public class FileController {
     
   }
 
-  @GetMapping("/files/{id}")
+  @GetMapping("/file/{id}")
   public ResponseEntity<byte[]> getFile(@PathVariable Long id) {
     FileDB fileDB = storageService.getFile(id);
     return ResponseEntity.ok()
