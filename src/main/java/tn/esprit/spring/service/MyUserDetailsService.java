@@ -24,13 +24,13 @@ private UserService userService;
 @Transactional
 public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 User user = userService.findUserByUserName(userName);
-List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
+List<GrantedAuthority> authorities = getUserAuthority(user.getRole());
 return new org.springframework.security.core.userdetails.User(user.getUserName(),
 user.getPassword(),user.getActive(), true, true, true, authorities); }
-private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
+private List<GrantedAuthority> getUserAuthority(Role userRoles) {
 Set<GrantedAuthority> roles = new HashSet<GrantedAuthority>();
-for (Role role : userRoles) {
-roles.add(new SimpleGrantedAuthority(role.getRole().toString())); }
+
+roles.add(new SimpleGrantedAuthority(userRoles.getRole().toString())); 
 List<GrantedAuthority> grantedAuthorities = new ArrayList<>(roles);
 return grantedAuthorities;
 }

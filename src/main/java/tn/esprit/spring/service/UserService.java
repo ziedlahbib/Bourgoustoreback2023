@@ -30,10 +30,7 @@ return userRepository.findByUserName(userName);
 }
 public User saveUser(User user) {
 Role e =new Role(RoleName.ADMIN);
-Set<Role> roles = new HashSet<Role>();
-roles.add(e);
 user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 user.setActive(true);
-user.setRoles(roles);
-user.setRole("ADMIN");
+user.setRole(e);
 return userRepository.save(user); }}
