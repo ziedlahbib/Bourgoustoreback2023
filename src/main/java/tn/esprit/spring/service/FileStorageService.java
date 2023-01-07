@@ -69,8 +69,8 @@ public class FileStorageService {
 		// TODO Auto-generated method stub
 		User u = userRepo.findById(iduser).orElse(null);
 		FileDB f = fileDBRepo.findById(idfile).orElse(null);
-		f.setUser(u);
-		fileDBRepo.save(f);
+		u.setFiles(f);
+		userRepo.save(u);
 		return u;
 	}
  

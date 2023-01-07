@@ -66,7 +66,7 @@ public class User implements Serializable {
 	private String password;
 
 
-	@OneToOne(mappedBy="user")
+	@OneToOne
 	private FileDB files;
 	
 	@OneToMany(mappedBy="user")

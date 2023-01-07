@@ -53,10 +53,10 @@ public class FileDB implements Serializable {
   private byte[] data;
   
   
-  @OneToOne
+  @OneToOne(mappedBy="files")
   private User user;
   
-  @OneToOne
+  @OneToOne(mappedBy="files")
   private Article article;
   
 
