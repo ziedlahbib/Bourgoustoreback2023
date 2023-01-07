@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -50,11 +51,10 @@ public class User implements Serializable {
 	private String userName;
 	private Boolean active;
 
-	
-
-	
+	@ManyToOne(cascade = CascadeType.PERSIST, fetch
+	= FetchType.EAGER)
+@JsonIgnore
 	private Role role;
-
 
 
 	private String tel;

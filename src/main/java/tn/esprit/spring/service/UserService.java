@@ -33,4 +33,5 @@ Role e =new Role(RoleName.ADMIN);
 user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 user.setActive(true);
 user.setRole(e);
+System.out.println("role"+user.getRole().getRole().toString());
 return userRepository.save(user); }}
