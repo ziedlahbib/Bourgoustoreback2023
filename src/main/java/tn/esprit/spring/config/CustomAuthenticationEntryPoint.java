@@ -1,6 +1,6 @@
 package tn.esprit.spring.config;
 
-/*
+
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,4 +21,4 @@ public class CustomAuthenticationEntryPoint extends BasicAuthenticationEntryPoin
 		response.setHeader("WWW-Authenticate", "myown");
 		response.sendError(HttpServletResponse.SC_UNAUTHORIZED, authException.getMessage());
 	}
-}*/
+}

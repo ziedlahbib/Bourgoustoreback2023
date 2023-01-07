@@ -39,8 +39,8 @@ http.authorizeRequests() .antMatchers("/registration","/login").permitAll()
 .authenticated()
 .and()
 .httpBasic().and().csrf().disable();
-
 /*
+
 		AuthenticationEntryPoint entryPoint = new CustomAuthenticationEntryPoint();
 		http.authorizeRequests() .antMatchers("/registration","/login").permitAll()
 		.anyRequest()
@@ -48,9 +48,9 @@ http.authorizeRequests() .antMatchers("/registration","/login").permitAll()
 		.and()
 		.httpBasic().authenticationEntryPoint(entryPoint).and().csrf().disable();
 		
+
+
+
 */
-
-
-
 }}
 

@@ -67,6 +67,7 @@ public class User implements Serializable {
 
 
 	@OneToOne
+	@JsonIgnore
 	private FileDB files;
 	
 	@OneToMany(mappedBy="user")

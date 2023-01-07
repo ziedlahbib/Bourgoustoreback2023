@@ -47,6 +47,7 @@ public class Article implements Serializable {
 	  private Type type;
 
 	  @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+	  @JsonManagedReference
 	  private FileDB files;
 
 	  @OneToOne(mappedBy="article")
