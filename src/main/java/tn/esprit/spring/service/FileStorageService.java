@@ -53,11 +53,11 @@ public class FileStorageService {
 	  User t =userRepo.findById(id).orElse(null);
 	    return t.getFiles();
 	  }
-  public FileDB getFileByarticle(String id) {
+  public FileDB getFileByarticle(Long id) {
 	  Article t =articlerepo.findById(id).orElse(null);
 	    return t.getFiles();
 	  }
-  public void affecterFileToArticle(Long idFiles, String idAticle) {
+  public void affecterFileToArticle(Long idFiles, Long idAticle) {
 		Article t=articlerepo.findById(idAticle).orElse(null);
 		
 		FileDB f=fileDBRepo.findById(idFiles).orElse(null);

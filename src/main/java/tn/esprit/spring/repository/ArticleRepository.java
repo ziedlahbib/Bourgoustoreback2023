@@ -14,7 +14,7 @@ import tn.esprit.spring.entity.Type;
 
 
 @Repository
-public interface ArticleRepository extends JpaRepository<Article, String> {
+public interface ArticleRepository extends JpaRepository<Article, Long> {
 	List<Article> findByCategorie(Categorie cat);
 	List<Article> findByType(Type type);
 	

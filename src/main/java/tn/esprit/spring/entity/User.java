@@ -71,6 +71,7 @@ public class User implements Serializable {
 	private FileDB files;
 	
 	@OneToMany(mappedBy="user")
+	@JsonIgnore
 	private List<Commande> cmd;
 	
 }

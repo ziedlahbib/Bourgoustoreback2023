@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -33,8 +34,10 @@ public class Commande implements Serializable{
 	@Column(name="id")
 	private Long id;
 	@ManyToMany(mappedBy="commande")
+	@JsonIgnore
 	private List<ArticleVendu> articles;
 	@ManyToOne
+	@JsonIgnore
 	private User user;
 
 }

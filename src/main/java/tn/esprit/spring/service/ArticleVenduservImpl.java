@@ -19,7 +19,7 @@ public class ArticleVenduservImpl implements IArticleVenduserv {
 	ArticleVenduRepository articlevendurepo;
 	
 	@Override
-	public ArticleVendu ajouteretArticlevendu(String articlesid,ArticleVendu av) {
+	public ArticleVendu ajouteretArticlevendu(Long articlesid,ArticleVendu av) {
 		Article a = articleRepo.findById(articlesid).orElse(null);
 		av.setArticle(a);
 		return articlevendurepo.save(av);

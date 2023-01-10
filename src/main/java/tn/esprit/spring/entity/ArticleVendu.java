@@ -12,6 +12,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,8 +32,10 @@ public class ArticleVendu  implements Serializable {
 	private Long id;
 	private Long qte;
 	@OneToOne
+	@JsonManagedReference
 	public Article article;
 	@ManyToMany
+	@JsonManagedReference
 	private List<Commande> commande;
 	  
 

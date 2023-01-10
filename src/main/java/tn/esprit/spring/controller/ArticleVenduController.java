@@ -26,7 +26,7 @@ public class ArticleVenduController {
 	
 	@PostMapping("/add-articlevendu/{idarticle}")
 	@ResponseBody
-	public ArticleVendu addcentre(@RequestBody ArticleVendu av,@PathVariable("idarticle") String idarticle)
+	public ArticleVendu addcentre(@RequestBody ArticleVendu av,@PathVariable("idarticle") Long idarticle)
 	{
 		return articlevenduServ.ajouteretArticlevendu(idarticle,av);
 	

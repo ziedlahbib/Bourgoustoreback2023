@@ -22,7 +22,7 @@ public class ArticleServiceImpl implements IArticleService {
 	}
 
 	@Override
-	public Article updateArticle(Article article, String idarticle) {
+	public Article updateArticle(Article article, Long idarticle) {
 		Article a=articleRepo.findById(idarticle).orElse(null);
 		a.setCategorie(article.getCategorie());
 		a.setDescription(article.getDescription());
@@ -32,7 +32,7 @@ public class ArticleServiceImpl implements IArticleService {
 	}
 
 	@Override
-	public void deleteArticle(String idarticle) {
+	public void deleteArticle(Long idarticle) {
 		articleRepo.deleteById(idarticle);
 		
 	}
@@ -62,7 +62,7 @@ public class ArticleServiceImpl implements IArticleService {
 	}
 
 	@Override
-	public Article affichDetailarticle(String idarticle) {
+	public Article affichDetailarticle(Long idarticle) {
 		// TODO Auto-generated method stub
 		return articleRepo.findById(idarticle).orElse(null);
 	}

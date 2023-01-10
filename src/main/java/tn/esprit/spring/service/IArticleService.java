@@ -8,9 +8,9 @@ import tn.esprit.spring.entity.Type;
 
 public interface IArticleService {
 	public Article ajoutArticle(Article article);
-	public Article updateArticle(Article article,String idarticle);
-	public void deleteArticle(String idarticle);
-	public Article affichDetailarticle(String idarticle);
+	public Article updateArticle(Article article,Long idarticle);
+	public void deleteArticle(Long idarticle);
+	public Article affichDetailarticle(Long idarticle);
 	public List<Article> getAllArticle();
 	public List<Article> getArticleByCategorie(Categorie categorie);
 	public List<Article> getArticleByType(Type type);

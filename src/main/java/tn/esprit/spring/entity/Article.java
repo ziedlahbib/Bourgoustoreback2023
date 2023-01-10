@@ -10,6 +10,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -17,7 +18,7 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -34,10 +35,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Article implements Serializable {
 	private static final long serialVersionUID = 1L;
-	  @Id
-	  @GeneratedValue(generator = "uuid")
-	  @GenericGenerator(name = "uuid", strategy = "uuid2")
-	  private String id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	  private Long id;
 	  private String description;
 	  private String name;
 	  private float prix;
@@ -51,6 +51,7 @@ public class Article implements Serializable {
 	  private FileDB files;
 
 	  @OneToOne(mappedBy="article")
+	  @JsonIgnore
 	  private ArticleVendu Av;
 	  
 

@@ -34,7 +34,7 @@ public class ArticleController {
 	}
 	@PutMapping("/update-article/{idarticle}")
 	@ResponseBody
-	public Article updateArticle(@RequestBody Article a,@PathVariable("idarticle") String idarticle)
+	public Article updateArticle(@RequestBody Article a,@PathVariable("idarticle") Long idarticle)
 	{
 		return articleServ.updateArticle(a, idarticle);
 	
@@ -42,14 +42,14 @@ public class ArticleController {
 	
 	@DeleteMapping("/delete-article/{idarticle}")
 	@ResponseBody
-	public void deleteArticle(@PathVariable("idarticle") String idarticle)
+	public void deleteArticle(@PathVariable("idarticle") Long idarticle)
 	{
 		articleServ.deleteArticle(idarticle);
 	
 	}
 	@GetMapping("/get-article/{id-article}")
 	@ResponseBody
-	public Article getuserbyid(@PathVariable("id-article") String idArticle) {
+	public Article getuserbyid(@PathVariable("id-article") Long idArticle) {
 		return articleServ.affichDetailarticle(idArticle);
 
 	}

@@ -102,7 +102,7 @@ public class FileController {
     
   }
   @GetMapping("/filesdearticle/{id}")
-  public FileDB getListFilesdearticle(@PathVariable String id) {
+  public FileDB getListFilesdearticle(@PathVariable Long id) {
 	  FileDB files = storageService.getFileByarticle(id);
     return files;
 }
@@ -113,7 +113,7 @@ public class FileController {
 }
   @PutMapping("/affecter-fileToArticle/{id-Article}/{files}")
 	@ResponseBody
-	public void affecterFilesToarticle(@PathVariable("files") Long idfile, @PathVariable("id-Article") String idArticle) {
+	public void affecterFilesToarticle(@PathVariable("files") Long idfile, @PathVariable("id-Article") Long idArticle) {
 	  storageService.affecterFileToArticle(idfile, idArticle);
 
 	}
