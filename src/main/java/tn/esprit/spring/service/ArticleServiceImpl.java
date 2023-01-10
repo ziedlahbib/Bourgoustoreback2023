@@ -61,4 +61,10 @@ public class ArticleServiceImpl implements IArticleService {
 		return articleRepo.recherchepartypeetcategorie(categorie, type);
 	}
 
+	@Override
+	public Article affichDetailarticle(String idarticle) {
+		// TODO Auto-generated method stub
+		return articleRepo.findById(idarticle).orElse(null);
+	}
+
 }

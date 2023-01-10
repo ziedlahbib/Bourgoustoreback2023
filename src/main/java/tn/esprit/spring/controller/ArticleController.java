@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.spring.entity.Article;
 import tn.esprit.spring.entity.Categorie;
+import tn.esprit.spring.entity.Offre;
 import tn.esprit.spring.entity.Type;
 import tn.esprit.spring.service.ArticleServiceImpl;
 @CrossOrigin(origins = "http://localhost:4200/",exposedHeaders="Access-Control-Allow-Origin" )
@@ -46,6 +47,12 @@ public class ArticleController {
 	{
 		articleServ.deleteArticle(idarticle);
 	
+	}
+	@GetMapping("/get-article/{id-article}")
+	@ResponseBody
+	public Article getuserbyid(@PathVariable("id-article") String idArticle) {
+		return articleServ.affichDetailarticle(idArticle);
+
 	}
 	@GetMapping("/get-all-article")
 	@ResponseBody
