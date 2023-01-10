@@ -27,7 +27,7 @@ auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);}
 @Override
 protected void configure(HttpSecurity http) throws Exception {
 	
-	
+	/*
 
 
 http.authorizeRequests() .antMatchers("/registration","/login").permitAll()
@@ -39,7 +39,7 @@ http.authorizeRequests() .antMatchers("/registration","/login").permitAll()
 .authenticated()
 .and()
 .httpBasic().and().csrf().disable();
-/*
+*/
 
 		AuthenticationEntryPoint entryPoint = new CustomAuthenticationEntryPoint();
 		http.authorizeRequests() .antMatchers("/registration","/login").permitAll()
@@ -51,6 +51,6 @@ http.authorizeRequests() .antMatchers("/registration","/login").permitAll()
 
 
 
-*/
+
 }}
 
