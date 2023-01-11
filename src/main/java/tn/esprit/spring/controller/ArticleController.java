@@ -75,6 +75,13 @@ public class ArticleController {
 		return articleServ.getArticleByType(type);
 	
 	}
+	@GetMapping("/get-article-by-name/{name}")
+	@ResponseBody
+	public List<Article> affichArticleByName(@PathVariable("name") String name)
+	{
+		return articleServ.getArticleByName(name);
+	
+	}
 	@GetMapping("/get-article-by-categorie-ET-Type/{categorie}/{type}")
 	@ResponseBody
 	public List<Article> affichArticleByCategorieEtType(@PathVariable("categorie") Categorie categorie,@PathVariable("type") Type type)

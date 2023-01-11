@@ -15,5 +15,6 @@ public interface IArticleService {
 	public List<Article> getArticleByCategorie(Categorie categorie);
 	public List<Article> getArticleByType(Type type);
 	public List<Article> getArticleParTypeEtCategorie(Type type,Categorie categorie);
+	public List<Article> getArticleByName(String name);
 
 }

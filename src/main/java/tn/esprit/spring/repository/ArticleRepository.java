@@ -21,5 +21,6 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	@Query("Select r FROM Article r where r.categorie =:categorie AND r.type =:type")
 	List<Article> recherchepartypeetcategorie(@Param("categorie") tn.esprit.spring.entity.Categorie categorie ,@Param("type") tn.esprit.spring.entity.Type type
 			);
+	List<Article> findByName(String name);
 
 }

@@ -1,5 +1,6 @@
 package tn.esprit.spring.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,18 @@ public class ArticleServiceImpl implements IArticleService {
 	public List<Article> getArticleByType(Type type) {
 		// TODO Auto-generated method stub
 		return articleRepo.findByType(type);
+	}
+	@Override
+	public List<Article> getArticleByName(String name) {
+		List<Article> search =new ArrayList<Article>();
+		// TODO Auto-generated method stub
+		List<Article> articles=articleRepo.findAll();
+		for(Article a : articles) {
+			if(a.getName().contains(name)) {
+				search.add(a);
+			}
+		}
+		return search;
 	}
 
 	@Override
