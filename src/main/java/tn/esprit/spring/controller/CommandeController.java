@@ -25,8 +25,8 @@ public class CommandeController {
 	@Autowired
 	CommandeServiceImpl cmdServ;
 	@PostMapping("/add-Commande/{idArticle}/{iduser}")
-	public void ajoutercomandeetuserEtAffecterArticleaucommande(@RequestBody Commande cmd, @PathVariable("idArticle")List<ArticleVendu> idArticle,@PathVariable("iduser")Long iduser){
-		cmdServ.ajoutercommande(idArticle, cmd,iduser);
+	public Commande ajoutercomandeetuserEtAffecterArticleaucommande(@RequestBody Commande cmd, @PathVariable("idArticle")List<Long> idArticle,@PathVariable("iduser")Long iduser){
+		 return cmdServ.ajoutercommande(idArticle, cmd,iduser);
 	}
 
 }

@@ -34,4 +34,10 @@ public class ArticleVenduservImpl implements IArticleVenduserv {
 		
 	}
 
+	@Override
+	public List<ArticleVendu> getall() {
+		// TODO Auto-generated method stub
+		return articlevendurepo.findAll();
+	}
+
 }

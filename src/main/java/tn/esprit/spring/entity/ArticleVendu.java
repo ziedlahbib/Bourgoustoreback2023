@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -33,8 +34,7 @@ public class ArticleVendu  implements Serializable {
 	@Column(name="id")
 	private Long id;
 	private Long qte;
-	@OneToOne
-	@JsonIgnore
+	@ManyToOne
 	public Article article;
 	@ManyToMany
 	@JsonIgnore

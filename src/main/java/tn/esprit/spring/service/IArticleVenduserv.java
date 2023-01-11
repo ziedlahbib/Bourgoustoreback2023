@@ -9,5 +9,6 @@ import tn.esprit.spring.entity.Commande;
 public interface IArticleVenduserv {
 	public ArticleVendu ajouteretArticlevendu(Long articlesid,ArticleVendu av);
 	public void supprimerarticlevendu(List<Long> idav);
+	public List<ArticleVendu> getall();
 
 }

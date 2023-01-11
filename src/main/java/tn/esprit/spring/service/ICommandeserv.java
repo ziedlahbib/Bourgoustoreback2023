@@ -8,6 +8,6 @@ import tn.esprit.spring.entity.Article;
 import tn.esprit.spring.entity.ArticleVendu;
 
 public interface ICommandeserv {
-	public Commande ajoutercommande(List<ArticleVendu> articles,Commande cmd,Long iduser);
+	public Commande ajoutercommande(List<Long> articles,Commande cmd,Long iduser);
 
 }

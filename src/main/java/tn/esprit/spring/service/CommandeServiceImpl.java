@@ -28,12 +28,14 @@ public class CommandeServiceImpl implements ICommandeserv{
 	@Autowired
 	ArticleVenduservImpl artticlevenduserv;
 	@Override
-	public Commande ajoutercommande(List<ArticleVendu> articlesv, Commande cmd,Long iduser) {
+	public Commande ajoutercommande(List<Long> articlesv, Commande cmd,Long iduser) {
+		cmdRepo.save(cmd);
 		User u = userRepo.findById(iduser).orElse(null);
 		cmd.setUser(u);
-		for(ArticleVendu a : articlesv) {
-			a.getCommande().add(cmd);
-			articlevendurepo.save(a);
+		for(Long a : articlesv) {
+			ArticleVendu av=articlevendurepo.findById(a).orElse(null);
+			av.getCommande().add(cmd);
+			articlevendurepo.save(av);
 		}
 		return 	cmdRepo.save(cmd);
 	}

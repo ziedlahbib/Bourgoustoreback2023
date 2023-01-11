@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import tn.esprit.spring.entity.Article;
 import tn.esprit.spring.entity.ArticleVendu;
 import tn.esprit.spring.service.ArticleVenduservImpl;
 
@@ -36,6 +38,13 @@ public class ArticleVenduController {
 	public void deleteArticle(@PathVariable("idarticlevendu") List<Long> idarticle)
 	{
 		articlevenduServ.supprimerarticlevendu(idarticle);
+	
+	}
+	@GetMapping("/get-all-articlevendu")
+	@ResponseBody
+	public List<ArticleVendu> affichetallArticle()
+	{
+		return articlevenduServ.getall();
 	
 	}
 
