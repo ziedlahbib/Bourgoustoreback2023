@@ -53,7 +53,6 @@ public class User implements Serializable {
 
 	@ManyToOne(cascade = CascadeType.PERSIST, fetch
 	= FetchType.EAGER)
-@JsonIgnore
 	private Role role;
 
 

@@ -54,10 +54,11 @@ public class FileDB implements Serializable {
   
   
   @OneToOne(mappedBy="files")
+  @JsonIgnore
   private User user;
   
   @OneToOne(mappedBy="files")
-  @JsonBackReference
+  @JsonBackReference 
   private Article article;
   
 
