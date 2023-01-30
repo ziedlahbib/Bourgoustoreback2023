@@ -2,6 +2,7 @@ package tn.esprit.spring.service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,16 @@ public class UserServiceImpl implements IUserservice {
 	FileDBRepository fileRepo;
 
 	@Override
+	public Optional<User> findUserByEmail(String email) {
+		return userRepo.findByEmail(email);
+	}
+
+	@Override
+	public Optional<User> findUserByResetToken(String resetToken) {
+		return userRepo.findByResetToken(resetToken);
+	}
+	
+	@Override
 	public User inscription(User user) {
 		 return userRepo.save(user);
 	}
@@ -32,7 +43,7 @@ public class UserServiceImpl implements IUserservice {
 		u.setTel(user.getTel());
 		u.setRole(user.getRole());
 		u.setEmail(user.getEmail());
-		
+		u.setPassword(user.getPassword());
 
 		
 		

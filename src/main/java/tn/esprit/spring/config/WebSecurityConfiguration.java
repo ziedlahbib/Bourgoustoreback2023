@@ -30,7 +30,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 
 
-http.authorizeRequests() .antMatchers("/registration","/login").permitAll()
+http.authorizeRequests() .antMatchers("/registration","/login","/forgot","/reset").permitAll()
 .anyRequest()
 .authenticated()
 .and()

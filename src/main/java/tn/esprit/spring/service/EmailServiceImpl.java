@@ -6,13 +6,17 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.io.File;
 import javax.mail.SendFailedException;
 import javax.mail.internet.MimeMessage;
 
+@Service("emailService")
 @Component
-public class EmailServiceImpl {
+public class EmailServiceImpl implements EmailService {
 
 	@Autowired
 	private JavaMailSender javaMailSender;
@@ -43,6 +47,10 @@ public class EmailServiceImpl {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+	@Async
+	public void sendEmail(SimpleMailMessage email) {
+		javaMailSender.send(email);
 	}
 
 }
